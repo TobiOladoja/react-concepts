@@ -6,31 +6,30 @@ class App extends Component {
     name: 'Tobi',
     age: 21
   };
-  handleClick = e => {
-    // console.log(e.target);
-    // console.log(this.state); // Logs out the state on console
+
+  handleChange = e => {
     this.setState({
-      name: 'John'
+      name: e.target.value // To get value of whatever is being typed into the input field being targeted.
     });
   };
 
-  handleHover = e => {
-    console.log(e.target);
-  };
-  handleCopy = e => {
-    console.log('Try being original bro');
+  handleSubmit = e => {
+    e.preventDefault(); // Prevent default reloading of page
+    console.log('Form has been submitted', this.state.name);
   };
   render() {
     const { name, age } = this.state;
-    const { handleClick, handleHover, handleCopy } = this;
+    const { handleChange, handleSubmit } = this;
     return (
       <div className='App'>
         <h1>
           Hi, my name is {name} and I am {age} years old.
         </h1>
-        <button onClick={handleClick}>Click Me</button>
-        <button onMouseOver={handleHover}>Hover me</button>
-        <p onCopy={handleCopy}>What we think, we become</p>
+        {/* adding Event to onSubmit covers button (clicking it) and when a user types enter. Best of both worlds!*/}
+        <form onSubmit={handleSubmit}>
+          <input type='text' onChange={handleChange} />
+          <button>Type to update name</button>
+        </form>
       </div>
     );
   }
