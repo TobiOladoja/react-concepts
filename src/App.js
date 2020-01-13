@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Ninjas from './components/Ninjas';
 
 class App extends Component {
   state = {
@@ -30,6 +31,7 @@ class App extends Component {
           <input type='text' onChange={handleChange} />
           <button>Type to update name</button>
         </form>
+        <Ninjas />
       </div>
     );
   }
