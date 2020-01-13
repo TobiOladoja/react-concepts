@@ -31,7 +31,9 @@ class App extends Component {
           <input type='text' onChange={handleChange} />
           <button>Type to update name</button>
         </form>
-        <Ninjas />
+        {/* Created three props to pass into the Ninjas component */}
+        <Ninjas name='John' age='25' belt='Black' />
+        <Ninjas name='Sam' age='20' belt='Blue' />
       </div>
     );
   }
