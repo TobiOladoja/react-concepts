@@ -8,7 +8,10 @@ class App extends Component {
   };
   handleClick = e => {
     // console.log(e.target);
-    console.log(this.state);
+    // console.log(this.state); // Logs out the state on console
+    this.setState({
+      name: 'John'
+    });
   };
 
   handleHover = e => {
