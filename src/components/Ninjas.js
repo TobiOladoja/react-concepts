@@ -2,17 +2,19 @@ import React, { Component } from 'react';
 
 class Ninjas extends Component {
   render() {
-    console.log(this.props); // You can see the name, age and belt that was passed by the App Component.
-    const { name, age, belt } = this.props; // Destructuring, so you can pass props now without using 'this.props.___' just '____'
-    return (
-      <div className='ninja'>
-        <ul>
-          <li>Name: {name}</li>
-          <li>Age: {age}</li>
-          <li>Belt: {belt}</li>
-        </ul>
-      </div>
-    );
+    const { ninjas } = this.props;
+    const ninjaList = ninjas.map(ninja => {
+      return (
+        <div className='ninja' key={ninja.id}>
+          <ul>
+            <li>Name: {ninja.name}</li>
+            <li>Age: {ninja.age}</li>
+            <li>Belt: {ninja.belt}</li>
+          </ul>
+        </div>
+      );
+    });
+    return <div className='ninja-list'>{ninjaList}</div>;
   }
 }
 

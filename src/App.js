@@ -4,39 +4,28 @@ import Ninjas from './components/Ninjas';
 
 class App extends Component {
   state = {
-    name: 'Tobi',
-    age: 21
+    ninjas: [
+      { name: 'Tobi', age: 21, belt: 'black', id: 1 },
+      { name: 'John', age: 23, belt: 'blue', id: 2 },
+      { name: 'Sam', age: 26, belt: 'green', id: 3 }
+    ]
   };
 
-  handleChange = e => {
-    this.setState({
-      name: e.target.value // To get value of whatever is being typed into the input field being targeted.
-    });
-  };
-
-  handleSubmit = e => {
-    e.preventDefault(); // Prevent default reloading of page
-    console.log('Form has been submitted', this.state.name);
-  };
   render() {
-    const { name, age } = this.state;
-    const { handleChange, handleSubmit } = this;
     return (
       <div className='App'>
-        <h1>
-          Hi, my name is {name} and I am {age} years old.
-        </h1>
-        {/* adding Event to onSubmit covers button (clicking it) and when a user types enter. Best of both worlds!*/}
-        <form onSubmit={handleSubmit}>
-          <input type='text' onChange={handleChange} />
-          <button>Type to update name</button>
-        </form>
-        {/* Created three props to pass into the Ninjas component */}
-        <Ninjas name='John' age='25' belt='Black' />
-        <Ninjas name='Sam' age='20' belt='Blue' />
+        <h1>My React Application</h1>
+
+        <Ninjas ninjas={this.state.ninjas} />
       </div>
     );
   }
 }
 
 export default App;
+
+// We're going to pass the array in the state down to the Ninjas in the rendered component Ninjas, by passing it down as prop called ninjas
+// and set it equaul to {this.state.ninjas}, so we'll have access to the ninjas array in the Ninjas component. Then in ninjas file
+// We get the original array which is ninjas, then we map through the array then we receive the inidivdual ninja. Then we perform
+// a function for each individual item, inside that function we'll perform a bit of JSX that we want to output for each individual ninja.
+// So it cycles through those, stores that JSX in a new array called ninjaList, then we output that ninjaList and it outpts that whole of JSX.
