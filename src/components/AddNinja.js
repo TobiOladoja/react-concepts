@@ -15,7 +15,7 @@ class AddNinja extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log('Form has been submitted', this.state);
+    this.props.addNinja(this.state);
   };
   render() {
     const { handleChange, handleSubmit } = this;
