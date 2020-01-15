@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 import Ninjas from './components/Ninjas';
 import AddNinjas from './components/AddNinja';
+import Navbar from './components/views/Navbar';
+import Home from './components/views/Home';
+import About from './components/views/About';
+import Contact from './components/views/Contact';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 class App extends Component {
   state = {
@@ -32,12 +37,20 @@ class App extends Component {
 
   render() {
     return (
-      <div className='App'>
-        <h1>My React Application</h1>
+      <BrowserRouter>
+        <div>
+          <Navbar />
+          <Route exact path='/' component={Home} />
+          <Route path='/about' component={About} />
+          <Route path='/contact' component={Contact} />
+          <div className='App'>
+            <h1>My React Application</h1>
 
-        <Ninjas ninjas={this.state.ninjas} deleteNinja={this.deleteNinja} />
-        <AddNinjas addNinja={this.addNinja} />
-      </div>
+            <Ninjas ninjas={this.state.ninjas} deleteNinja={this.deleteNinja} />
+            <AddNinjas addNinja={this.addNinja} />
+          </div>
+        </div>
+      </BrowserRouter>
     );
   }
 }
