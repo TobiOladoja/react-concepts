@@ -2,10 +2,10 @@ import React from 'react';
 import { Link, NavLink, withRouter } from 'react-router-dom';
 
 const Navbar = props => {
-  setTimeout(() => {
-    console.log('Going to about page, supercharge withRouter!');
-    props.history.push('/about');
-  }, 2000);
+  //   setTimeout(() => {
+  //     console.log('Going to about page, supercharge withRouter!');
+  //     props.history.push('/about');
+  //   }, 2000);
   return (
     <nav className='nav-wrapper red darken-3'>
       <div className='container'>
