@@ -7,6 +7,7 @@ import Home from './components/views/Home';
 import About from './components/views/About';
 import Contact from './components/views/Contact';
 import { BrowserRouter, Route } from 'react-router-dom';
+import Posts from './components/views/Posts';
 
 class App extends Component {
   state = {
@@ -43,6 +44,7 @@ class App extends Component {
           <Route exact path='/' component={Home} />
           <Route path='/about' component={About} />
           <Route path='/contact' component={Contact} />
+          <Route path='/:post_id' component={Posts} />
           <div className='App'>
             <h1>My React Application</h1>
 
