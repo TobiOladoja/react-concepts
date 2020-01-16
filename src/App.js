@@ -44,7 +44,7 @@ class App extends Component {
           <Route exact path='/' component={Home} />
           <Route path='/about' component={About} />
           <Route path='/contact' component={Contact} />
-          <Route path='/:post_id' component={Posts} />
+          <Route path='/posts/:post_id' component={Posts} />
           <div className='App'>
             <h1>My React Application</h1>
 
