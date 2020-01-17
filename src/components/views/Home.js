@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-router';
+import { connect } from 'react-redux';
 class Home extends Component {
   render() {
     const { posts } = this.props;
@@ -35,4 +35,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect()(Home);
+export default connect(mapStateToProps)(Home);
